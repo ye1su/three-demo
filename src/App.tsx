@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import './App.css'
-import { Layout, Menu } from 'antd';
+import { ConfigProvider, Layout, Menu } from 'antd';
 import MenuItem from 'antd/es/menu/MenuItem';
 import PDB from './views/pdb/pdb'
 
@@ -40,18 +40,9 @@ const items: MenuItem[] = [
 
 function App() {
 
-  
+
   return (
     <Layout style={{ width: '100vw', height: '100vh' }}>
-      <Sider>
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-          items={items}
-        />
-      </Sider>
       <Layout>
         <Content>
           <PDB />

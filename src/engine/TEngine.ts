@@ -130,8 +130,6 @@ export class ThreeEngine {
   }
 
   showAtomsBonds() {
-    console.log('ttt');
-    
     for (let i = 0; i < this.objects.length; i++) {
       const object = this.objects[i]
 
@@ -189,6 +187,7 @@ export class ThreeEngine {
 
     _this.loader.load(url, (pdb) => {
       const geometryAtoms = pdb.geometryAtoms
+      console.log('geometryAtoms: ', geometryAtoms);
       const geometryBonds = pdb.geometryBonds
       const json = pdb.json
 

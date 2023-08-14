@@ -4,12 +4,12 @@ import { Button, Card, Select, Upload } from 'antd';
 import { ThreeEngine } from '../../engine/TEngine';
 import styles from './pdb.module.less'
 import { PDB_VIZ_TYPE } from '../../engine/config';
-
 function App() {
   const threeTarget = useRef(null)
   const tEngine = useRef(null)
   useEffect(() => {
     tEngine.current = new ThreeEngine(threeTarget.current)
+    tEngine.current.restLoader('/pdb/graphite.pdb')
     return () => {
       tEngine.current.destroy()
     }
@@ -33,7 +33,7 @@ function App() {
                 style={{ width: 220 }}
                 options={PDB_VIZ_TYPE}
                 onChange={(value) => {
-                  
+
                   tEngine.current.changeVizType(value)
                 }}
               />
