@@ -5,15 +5,15 @@ import { Layout } from "antd";
 
 const { Sider, Content } = Layout;
 
-const URL = "three-demo";
+export const BASE_URL = "three-demo";
 
  export const routes = [
   {
-    path: `${URL}`,
+    path: `${BASE_URL}`,
     element: <App />,
   },
   {
-    path: `${URL}/pdb`,
+    path: `${BASE_URL}/pdb`,
     element: <Pdb />,
     _info: {
       title: 'pdb查看器'

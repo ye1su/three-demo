@@ -1,11 +1,15 @@
 import "./App.css";
 import { List } from "antd";
-import { routes } from "./router";
+import { BASE_URL, routes } from "./router";
 
 function App() {
   function handleClick(info) {
-    console.log("info: ", info);
-    window.open(info.path);
+    if (location.origin.indexOf(BASE_URL) > -1) {
+      const path = info.path.replace(/three-demo/, '');
+      window.open(`${location.origin}/${path}`);
+    } else {
+      window.open(`${location.origin}/${info.path}`);
+    }
   }
   return (
     <List
