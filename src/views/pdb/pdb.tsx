@@ -4,7 +4,7 @@ import { Button, Card, Select, Upload } from 'antd';
 import { ThreeEngine } from '../../engine/TEngine';
 import styles from './pdb.module.less'
 import { PDB_VIZ_TYPE } from '../../engine/config';
-function App() {
+function Pdb() {
   const threeTarget = useRef(null)
   const tEngine = useRef(null)
   useEffect(() => {
@@ -48,4 +48,4 @@ function App() {
   )
 }
 
-export default App
+export default Pdb

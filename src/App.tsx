@@ -1,55 +1,31 @@
-import { useEffect, useRef } from 'react'
-import './App.css'
-import { ConfigProvider, Layout, Menu } from 'antd';
-import MenuItem from 'antd/es/menu/MenuItem';
-import PDB from './views/pdb/pdb'
-
-const { Sider, Content } = Layout;
-
-import {
-
-  PieChartOutlined,
-} from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-
-type MenuItem = Required<MenuProps>['items'][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: 'group',
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
-
-
-const items: MenuItem[] = [
-  getItem('pdb预览', <PieChartOutlined />),
-
-];
-
+import "./App.css";
+import { List } from "antd";
+import { routes } from "./router";
 
 function App() {
-
-
+  function handleClick(info) {
+    console.log("info: ", info);
+    window.open(info.path);
+  }
   return (
-    <Layout style={{ width: '100vw', height: '100vh' }}>
-      <Layout>
-        <Content>
-          <PDB />
-        </Content>
-      </Layout>
-    </Layout>
-  )
+    <List
+      size="large"
+      header={
+        <div
+          style={{ width: "100%", display: "flex", justifyContent: "center" }}
+        >
+          DEMO列表
+        </div>
+      }
+      bordered
+      dataSource={routes.slice(1)}
+      renderItem={(item) => (
+        <List.Item style={{ display: "flex", justifyContent: "center" }}>
+          <a onClick={() => handleClick(item)}>{item._info.title}</a>
+        </List.Item>
+      )}
+    />
+  );
 }
 
-export default App
+export default App;
