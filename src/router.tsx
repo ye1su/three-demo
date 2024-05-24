@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import { Pdb } from "./views";
+import { Pdb, Pie } from "./views";
 import { Layout } from "antd";
 
 const { Sider, Content } = Layout;
@@ -17,6 +17,13 @@ export const BASE_URL = "three-demo";
     element: <Pdb />,
     _info: {
       title: 'pdb查看器'
+    }
+  },
+  {
+    path: `${BASE_URL}/pie`,
+    element: <Pie />,
+    _info: {
+      title: '3D 饼图'
     }
   },
 ].map((item) => {

@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Card, Select, Upload } from 'antd';
-import { ThreeEngine } from '../../engine/TEngine';
+import { ThreeEngine } from './engine/TEngine';
 import styles from './pdb.module.less'
-import { PDB_VIZ_TYPE } from '../../engine/config';
+import { PDB_VIZ_TYPE } from './engine/config';
 function Pdb() {
   const threeTarget = useRef(null)
   const tEngine = useRef(null)
